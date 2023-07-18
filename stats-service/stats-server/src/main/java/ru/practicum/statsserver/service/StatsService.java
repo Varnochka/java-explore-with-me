@@ -6,7 +6,6 @@ import ru.practicum.statsdto.HitDto;
 import ru.practicum.statsdto.StatDto;
 import ru.practicum.statsserver.exception.NoValidParameterRequest;
 import ru.practicum.statsserver.model.ItemStats;
-import ru.practicum.statsserver.model.StatsMapper;
 import ru.practicum.statsserver.repository.StatsRepository;
 
 import java.time.LocalDateTime;
@@ -17,7 +16,7 @@ import java.util.List;
 public class StatsService {
     private final StatsRepository repository;
 
-    public void saveHit(HitDto hitDto) {
+    public void saveRecord(HitDto hitDto) {
         ItemStats itemStats = StatsMapper.toItemStats(hitDto);
         repository.save(itemStats);
     }

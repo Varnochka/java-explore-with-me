@@ -1,6 +1,7 @@
-package ru.practicum.statsserver.model;
+package ru.practicum.statsserver.service;
 
 import ru.practicum.statsdto.HitDto;
+import ru.practicum.statsserver.model.ItemStats;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

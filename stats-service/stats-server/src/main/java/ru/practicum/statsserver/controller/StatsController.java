@@ -19,7 +19,7 @@ public class StatsController {
     @PostMapping("/hit")
     @ResponseStatus(HttpStatus.CREATED)
     public void addHit(@RequestBody HitDto hitDto) {
-        service.saveHit(hitDto);
+        service.saveRecord(hitDto);
     }
 
     @GetMapping("/stats")
