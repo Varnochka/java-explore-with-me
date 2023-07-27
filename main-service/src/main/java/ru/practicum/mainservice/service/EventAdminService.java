@@ -69,15 +69,11 @@ public class EventAdminService {
         Event foundEvent = getEventByIdIfExist(eventId);
 
         if (!Objects.equals(EventState.PENDING, foundEvent.getState())) {
-            throw new EventConflictException("Статус события должен быть'PENDING'");
+            throw new EventConflictException("Статус события должен быть 'PENDING'");
         }
 
         if (Objects.nonNull(request.getAnnotation()) && StringUtils.hasLength(request.getAnnotation())) {
-//            if (request.getAnnotation().length() < 20 || request.getAnnotation().length() > 2000) {
-//                throw new IncorrectRequestException("Длина аннотации не может быть меньше 20 и больше 2000");
-//            } else {
-                foundEvent.setAnnotation(request.getAnnotation());
-//            }
+            foundEvent.setAnnotation(request.getAnnotation());
         }
         if (Objects.nonNull(request.getTitle()) && StringUtils.hasLength(request.getTitle())) {
             foundEvent.setTitle(request.getTitle());
