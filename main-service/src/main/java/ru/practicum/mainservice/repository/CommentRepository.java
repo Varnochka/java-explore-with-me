@@ -14,4 +14,5 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 
     Optional<Comment> findByEventIdAndAuthorId(Long eventId, Long userId);
 
+    List<Comment> findTop10ByEventIdOrderByCreatedOnDesc(Long eventId);
 }

@@ -4,10 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-/**
- * Категории событий
- */
-
 @Getter
 @Setter
 @Builder

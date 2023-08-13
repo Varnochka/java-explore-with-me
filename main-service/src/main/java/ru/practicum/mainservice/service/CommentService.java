@@ -48,7 +48,6 @@ public class CommentService {
                     "и не может оставить комментарий", userId, eventId));
         }
 
-
         Optional<Comment> foundComment = commentRepository.findByEventIdAndAuthorId(eventId, userId);
         if (foundComment.isPresent()) {
             throw new AccessException(String.format("Пользователь с id='%s' уже оставлял комментарий к событию " +
@@ -97,6 +96,12 @@ public class CommentService {
         PageRequest pageRequest = PageRequest.of(from, size);
         List<Comment> comments = commentRepository.findAllByEventIdOrderByCreatedOnDesc(eventId, pageRequest);
 
+        return CommentMapper.toDtos(comments);
+    }
+
+    public List<CommentDto> getLast10CommentsByEventId(Long eventId) {
+        eventService.checkExistEventById(eventId);
+        List<Comment> comments = commentRepository.findTop10ByEventIdOrderByCreatedOnDesc(eventId);
         return CommentMapper.toDtos(comments);
     }
 

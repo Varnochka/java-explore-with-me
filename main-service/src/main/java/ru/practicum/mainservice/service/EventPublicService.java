@@ -85,7 +85,8 @@ public class EventPublicService {
                 .orElseThrow(() -> new NoFoundObjectException(
                         String.format("Событие с id='%s' и статусом 'PUBLISHED' не найдено", eventId)));
 
-        List<CommentDto> comments = commentService.getAllCommentsByEventId(eventId, 0, 10);
+        List<CommentDto> comments = commentService.getLast10CommentsByEventId(eventId);
+
         saveInfoToStatistics(ip, uri);
         updateViewsOfEvents(List.of(event));
 

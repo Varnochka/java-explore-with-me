@@ -4,10 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-/**
- * Широта и долгота места проведения события
- * */
-
 @Getter
 @Setter
 @Builder

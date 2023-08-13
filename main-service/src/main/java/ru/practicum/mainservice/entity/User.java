@@ -4,10 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-/**
- * Пользователь
- */
-
 @Getter
 @Setter
 @Builder
